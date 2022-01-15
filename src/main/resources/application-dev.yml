@@ -1,0 +1,51 @@
+#file:
+#  upload-dir: /usr/local/tomcat/logs/ims-app
+server:
+  ip: 0.0.0.0
+  port: 8080
+  servlet:
+    context-path: /api
+spring:
+  logging:
+    level:
+      com:
+        ims: trace
+      org:
+        hibernate:
+          stat: info
+          type: info
+      root: info
+  datasource:
+    password: admin
+    url: jdbc:postgresql://localhost:5432/task
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        generate_statistics: false
+    show-sql: false
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 512MB
+      max-request-size: 640MB
+
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: devtask8@gmail.com
+#    password: Broker123
+#    properties:
+#      mail:
+#        smtp:
+#          auth: 'true'
+#          connectiontimeout: '500000'
+#          timeout: '500000'
+#          writetimeout: '500000'
+#          starttls:
+#            enable: 'true'
