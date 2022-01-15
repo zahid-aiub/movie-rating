@@ -13,16 +13,16 @@ import javax.persistence.Id;
 @Setter
 @Getter
 @NoArgsConstructor
-public class Test extends BaseEntity {
+public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String name;
 
-    private String deptName;
+    private String dob;
 
-    private int minAge;
+    private String sex;
 
-    private int maxAge;
+    private String type;
 }
