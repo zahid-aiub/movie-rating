@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface GenreRepository extends JpaRepository<Genre, Long> {
+public interface GenreRepository extends JpaRepository<Genre, Integer> {
     @Query(value = "select * from insert_person(:name)", nativeQuery = true)
     int createGenre(@Param("name") String name);
 

@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface PersonRepository extends JpaRepository<Person, Long> {
+public interface PersonRepository extends JpaRepository<Person, Integer> {
 
     @Query(value = "select * from insert_person(:name, :dob, :sex, :type)", nativeQuery = true)
     int createPerson(@Param("name") String name, @Param("dob") String dob,

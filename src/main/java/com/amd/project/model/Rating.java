@@ -13,10 +13,16 @@ import javax.persistence.Id;
 @Setter
 @Getter
 @NoArgsConstructor
-public class Genre {
+public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String name;
+    private int customerId;
+
+    private int filmId;
+
+    private int value;
+
+    private boolean isSubFilm;
 }
