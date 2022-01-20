@@ -16,12 +16,12 @@ import static com.amd.project.config.Constrain.SUCCESS;
 public class CustomerController {
     private final CustomerService customerService;
 
-    @PostMapping("/add")
+    @PostMapping()
     public int create(@RequestBody Customer user) {
         return this.customerService.create(user);
     }
 
-    @GetMapping("/all")
+    @GetMapping()
     public ApiResponse<List<Customer>> getAll() {
         List<Customer> userList = this.customerService.findAll();
         return new ApiResponse<>(200, SUCCESS, userList);
