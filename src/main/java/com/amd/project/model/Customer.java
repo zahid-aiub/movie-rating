@@ -18,5 +18,5 @@ public class Customer {
 
     private String name;
 
-    private String age;
+    private int age;
 }
