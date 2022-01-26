@@ -8,4 +8,8 @@ public interface PersonService {
     int create(Person person);
 
     List<Person> findAll();
+
+    List<Person> getFilmPersonList(int id, boolean isSubFilm);
+
+    boolean delete(int id);
 }

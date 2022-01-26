@@ -22,5 +22,5 @@ public class SubFilm {
 
     private String releaseDate;
 
-    private long filmId;
+    private int filmId;
 }

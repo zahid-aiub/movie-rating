@@ -10,4 +10,10 @@ public interface FilmService {
     int create(FilmCreateDto filmCreateDto);
 
     List<Film> findAll();
+
+    Film findById(int id);
+
+    double getFilmRating(int id, boolean isSubFilm);
+
+    boolean delete(int id);
 }

@@ -23,6 +23,11 @@ public class GenreServiceImpl implements GenreService {
     }
 
     @Override
+    public List<Genre> getFilmGenresList(int id, boolean isSubFilm) {
+        return this.genreRepository.getFilmGenresList(id, isSubFilm);
+    }
+
+    @Override
     public List<Genre> findAll() {
         return this.genreRepository.findAllGenre();
     }

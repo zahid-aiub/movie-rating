@@ -25,4 +25,14 @@ public class PersonServiceImpl implements PersonService {
         return this.personRepository.findAllPerson();
     }
 
+    @Override
+    public List<Person> getFilmPersonList(int id, boolean isSubFilm) {
+        return this.personRepository.getFilmPersonList(id, isSubFilm);
+    }
+
+    @Override
+    public boolean delete(int id) {
+        return this.personRepository.delete(id);
+    }
+
 }

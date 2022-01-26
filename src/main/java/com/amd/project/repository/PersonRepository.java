@@ -16,4 +16,10 @@ public interface PersonRepository extends JpaRepository<Person, Integer> {
     @Query(value = "select * from get_person_list()", nativeQuery = true)
     List<Person> findAllPerson();
 
+    @Query(value = "select * from get_film_person_list(:_searchId, :_is_sub_film)", nativeQuery = true)
+    List<Person> getFilmPersonList(@Param("_searchId") int _searchId, @Param("_is_sub_film") boolean _is_sub_film);
+
+    @Query(value = "select delete_person(:_searchId)", nativeQuery = true)
+    boolean delete(@Param("_searchId") int _searchId);
+
 }

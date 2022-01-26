@@ -29,4 +29,14 @@ public class PersonController {
         return new ApiResponse<>(200, SUCCESS, personList);
     }
 
+    @GetMapping("/by-film/{id}")
+    public List<Person> getFilmPersonList(@PathVariable("id") int id, @RequestParam("isSubFilm") boolean isSubFilm) {
+        return this.personService.getFilmPersonList(id, isSubFilm);
+    }
+
+    @DeleteMapping("/{id}")
+    public boolean delete(@PathVariable("id") int id) {
+        return this.personService.delete(id);
+    }
+
 }

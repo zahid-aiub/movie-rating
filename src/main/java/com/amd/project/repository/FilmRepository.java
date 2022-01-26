@@ -17,11 +17,20 @@ public interface FilmRepository extends JpaRepository<Film, Integer> {
                @Param("_isSubFilm") boolean _isSubFilm,
                @Param("_personIdList") String _personIdList,
                @Param("_genreIdList") String _genreIdList,
-               @Param("_personIdLength") int  _personIdLength,
+               @Param("_personIdLength") int _personIdLength,
                @Param("_genreIdLength") int _genreIdLength
     );
 
     @Query(value = "select * from get_film_list()", nativeQuery = true)
     List<Film> findAllFilm();
+
+    @Query(value = "select * from get_film_info(:_searchId)", nativeQuery = true)
+    Film findById(@Param("_searchId") int _searchId);
+
+    @Query(value = "select * from get_film_rating(:_searchId, :_isSubFilm)", nativeQuery = true)
+    double getFilmRating(@Param("_searchId") int _searchId, @Param("_isSubFilm") boolean _isSubFilm);
+
+    @Query(value = "select delete_film(:_id)", nativeQuery = true)
+    boolean delete(@Param("_id") int _id);
 
 }

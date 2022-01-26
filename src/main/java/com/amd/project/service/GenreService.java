@@ -8,5 +8,7 @@ import java.util.List;
 public interface GenreService {
     int create(Genre genre);
 
+    List<Genre> getFilmGenresList(int id, boolean isSubFilm);
+
     List<Genre> findAll();
 }

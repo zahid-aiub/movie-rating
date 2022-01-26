@@ -7,7 +7,6 @@ import com.amd.project.service.FilmService;
 import com.amd.project.service.SubFilmService;
 import com.amd.project.utils.ApiResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,10 +33,26 @@ public class FilmController {
         return new ApiResponse<>(200, SUCCESS, films);
     }
 
-    @GetMapping("/:id/sub-films")
+    @GetMapping("/{id}")
+    public Film getById(@PathVariable("id") int id) {
+        return this.filmService.findById(id);
+    }
+
+    @GetMapping("/{id}/sub-films")
     public ApiResponse<List<SubFilm>> getAll(@PathVariable("id") int id) {
         List<SubFilm> films = this.subFilmService.findAll(id);
         return new ApiResponse<>(200, SUCCESS, films);
     }
+
+    @GetMapping("/{id}/rating")
+    public double getFilmRating(@PathVariable("id") int id, @RequestParam("isSubFilm") boolean isSubFilm) {
+        return this.filmService.getFilmRating(id, isSubFilm);
+    }
+
+    @DeleteMapping("/{id}")
+    public boolean delete(@PathVariable("id") int id) {
+        return this.filmService.delete(id);
+    }
+
 
 }

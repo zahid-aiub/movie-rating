@@ -9,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 
 @RequiredArgsConstructor
 @Service
@@ -46,5 +45,20 @@ public class FilmServiceImpl implements FilmService {
     @Override
     public List<Film> findAll() {
         return this.filmRepository.findAllFilm();
+    }
+
+    @Override
+    public Film findById(int id) {
+        return this.filmRepository.findById(id);
+    }
+
+    @Override
+    public double getFilmRating(int id, boolean isSubFilm) {
+        return this.filmRepository.getFilmRating(id, isSubFilm);
+    }
+
+    @Override
+    public boolean delete(int id) {
+        return this.filmRepository.delete(id);
     }
 }
