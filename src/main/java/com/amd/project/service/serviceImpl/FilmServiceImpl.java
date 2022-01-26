@@ -35,11 +35,10 @@ public class FilmServiceImpl implements FilmService {
         if (genreIdList.length() > 0) {
             genreIdList.setLength(genreIdList.length() - 1);
         }
-        ;
 
         return this.filmRepository.create(
                 filmCreateDto.getTitle(), filmCreateDto.getDescription(), filmCreateDto.getReleaseDate(),
-                filmCreateDto.getParentFilmId(), filmCreateDto.isSubFilm(), personIdList.toString(),
+                filmCreateDto.getParentFilmId(), filmCreateDto.getIsSubFilm() == 1, personIdList.toString(),
                 genreIdList.toString(), filmCreateDto.getPersonIdList().length, filmCreateDto.getGenreIdList().length
         );
     }

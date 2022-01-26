@@ -10,7 +10,7 @@ public class FilmCreateDto {
     private String releaseDate;
     private int[] personIdList;
     private int parentFilmId;
-    private boolean isSubFilm;
+    private int isSubFilm;
     private int[] genreIdList;
 
 }
