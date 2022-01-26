@@ -10,19 +10,20 @@ import java.util.List;
 
 import static com.amd.project.config.Constrain.SUCCESS;
 
+@CrossOrigin("*")
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "person")
+@RequestMapping(value = "persons")
 public class PersonController {
 
     private final PersonService personService;
 
-    @PostMapping("/add")
+    @PostMapping()
     public int create(@RequestBody Person person) {
         return this.personService.create(person);
     }
 
-    @GetMapping("/all")
+    @GetMapping()
     public ApiResponse<List<Person>> getAll() {
         List<Person> personList = this.personService.findAll();
         return new ApiResponse<>(200, SUCCESS, personList);

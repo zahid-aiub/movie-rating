@@ -1,7 +1,5 @@
 package com.amd.project.controller;
 
-import com.amd.project.model.Customer;
-import com.amd.project.model.Film;
 import com.amd.project.model.Rating;
 import com.amd.project.service.RatingService;
 import com.amd.project.utils.ApiResponse;

@@ -9,11 +9,11 @@ import java.util.List;
 
 public interface PersonRepository extends JpaRepository<Person, Integer> {
 
-    @Query(value = "select * from insert_person(:name, :dob, :sex, :type)", nativeQuery = true)
-    int createPerson(@Param("name") String name, @Param("dob") String dob,
-                @Param("sex") String sex, @Param("type") String type);
+    @Query(value = "select insert_person( :_dob, :_name, :_sex, :_type)", nativeQuery = true)
+    int createPerson( @Param("_dob") String _dob, @Param("_name") String _name,
+                @Param("_sex") String _sex, @Param("_type") String _type);
 
-    @Query(value = "select * from find_all_person()", nativeQuery = true)
+    @Query(value = "select * from get_person_list()", nativeQuery = true)
     List<Person> findAllPerson();
 
 }

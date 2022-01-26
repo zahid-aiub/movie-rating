@@ -14,6 +14,7 @@ import static com.amd.project.config.Constrain.SUCCESS;
 @RequiredArgsConstructor
 @RequestMapping(value = "user")
 public class CustomerController {
+
     private final CustomerService customerService;
 
     @PostMapping()
@@ -26,4 +27,5 @@ public class CustomerController {
         List<Customer> userList = this.customerService.findAll();
         return new ApiResponse<>(200, SUCCESS, userList);
     }
+
 }

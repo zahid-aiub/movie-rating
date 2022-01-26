@@ -9,9 +9,10 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface GenreRepository extends JpaRepository<Genre, Integer> {
-    @Query(value = "select * from insert_person(:name)", nativeQuery = true)
-    int createGenre(@Param("name") String name);
 
-    @Query(value = "select * from find_all_person()", nativeQuery = true)
+    @Query(value = "select insert_genre(:_name, :_createdAt)", nativeQuery = true)
+    int createGenre(@Param("_name") String _name, @Param("_createdAt") String _createdAt);
+
+    @Query(value = "select * from get_genre_list()", nativeQuery = true)
     List<Genre> findAllGenre();
 }

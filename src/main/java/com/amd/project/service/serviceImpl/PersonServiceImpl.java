@@ -17,7 +17,7 @@ public class PersonServiceImpl implements PersonService {
     private final PersonRepository personRepository;
 
     public int create(Person person) {
-        return this.personRepository.createPerson(person.getName(), person.getDob(), person.getSex(), person.getType());
+        return this.personRepository.createPerson(person.getDob(), person.getName(), person.getSex(), person.getType());
     }
 
     @Override

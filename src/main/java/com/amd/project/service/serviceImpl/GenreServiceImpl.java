@@ -19,7 +19,7 @@ public class GenreServiceImpl implements GenreService {
 
     @Override
     public int create(Genre genre) {
-        return this.genreRepository.createGenre(genre.getName());
+        return this.genreRepository.createGenre(genre.getName(), genre.getCreatedAt());
     }
 
     @Override

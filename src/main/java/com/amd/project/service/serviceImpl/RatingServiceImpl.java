@@ -19,12 +19,14 @@ public class RatingServiceImpl implements RatingService {
 
     @Override
     public int create(Rating rating) {
-        return this.ratingRepository.create(rating.getCustomerId(), rating.getFilmId(), rating.getValue());
+        return 0;
+//        return this.ratingRepository.create(rating.getCustomerId(), rating.getFilmId(), rating.getValue());
     }
 
     @Override
     public List<Rating> findAll() {
-        return this.ratingRepository.findAllRating();
+//        return this.ratingRepository.findAllRating();
+        return null;
     }
 }
 

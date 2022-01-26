@@ -9,10 +9,10 @@ import java.util.List;
 
 public interface RatingRepository extends JpaRepository<Rating, Long> {
 
-    @Query(value = "select * from insert_rating(:name, :age)", nativeQuery = true)
+   /* @Query(value = "select * from insert_rating(:name, :age)", nativeQuery = true)
     int create(@Param("customerId") int customerId, @Param("filmId") int filmId, @Param("value") int value);
 
     @Query(value = "select * from find_all_rating()", nativeQuery = true)
-    List<Rating> findAllRating();
+    List<Rating> findAllRating();*/
 
 }

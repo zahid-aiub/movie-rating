@@ -17,11 +17,13 @@ public class CustomerServiceImpl implements CustomerService {
     private final CustomerRepository customerRepository;
 
     public int create(Customer user) {
-        return this.customerRepository.createUser(user.getName(), user.getAge());
+        return 0;
+//        return this.customerRepository.createUser(user.getName(), user.getAge());
     }
 
     @Override
     public List<Customer> findAll() {
-        return this.customerRepository.findAllUser();
+//        return this.customerRepository.findAllUser();
+        return null;
     }
 }
