@@ -13,11 +13,18 @@ public interface PersonRepository extends JpaRepository<Person, Integer> {
     int createPerson( @Param("_dob") String _dob, @Param("_name") String _name,
                 @Param("_sex") String _sex, @Param("_type") String _type);
 
+    @Query(value = "select update_person(:_id, :_dob, :_name, :_sex, :_type)", nativeQuery = true)
+    int updatePerson( @Param("_id") int _id, @Param("_dob") String _dob, @Param("_name") String _name,
+                      @Param("_sex") String _sex, @Param("_type") String _type);
+
     @Query(value = "select * from get_person_list()", nativeQuery = true)
     List<Person> findAllPerson();
 
     @Query(value = "select * from get_film_person_list(:_searchId, :_is_sub_film)", nativeQuery = true)
     List<Person> getFilmPersonList(@Param("_searchId") int _searchId, @Param("_is_sub_film") boolean _is_sub_film);
+
+    @Query(value = "select * from get_person_info(:_searchId)", nativeQuery = true)
+    Person getById(@Param("_searchId") int _searchId);
 
     @Query(value = "select delete_person(:_searchId)", nativeQuery = true)
     boolean delete(@Param("_searchId") int _searchId);

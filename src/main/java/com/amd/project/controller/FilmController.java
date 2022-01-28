@@ -1,6 +1,7 @@
 package com.amd.project.controller;
 
 import com.amd.project.dto.FilmCreateDto;
+import com.amd.project.dto.FilmUpdateDto;
 import com.amd.project.model.Film;
 import com.amd.project.model.SubFilm;
 import com.amd.project.service.FilmService;
@@ -27,9 +28,20 @@ public class FilmController {
         return this.filmService.create(filmCreateDto);
     }
 
+    @PutMapping()
+    public int update(@RequestBody FilmUpdateDto filmUpdateDto) {
+        return this.filmService.update(filmUpdateDto);
+    }
+
     @GetMapping()
     public ApiResponse<List<Film>> getAll() {
         List<Film> films = this.filmService.findAll();
+        return new ApiResponse<>(200, SUCCESS, films);
+    }
+
+    @GetMapping("by-person/{id}")
+    public ApiResponse<List<Film>> getAllFilmByPersonId(@PathVariable("id") int id) {
+        List<Film> films = this.filmService.findAllByPersonId(id);
         return new ApiResponse<>(200, SUCCESS, films);
     }
 

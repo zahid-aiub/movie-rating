@@ -20,9 +20,18 @@ public class PersonServiceImpl implements PersonService {
         return this.personRepository.createPerson(person.getDob(), person.getName(), person.getSex(), person.getType());
     }
 
+    public int update(Person person) {
+        return this.personRepository.updatePerson(person.getId(), person.getDob(), person.getName(), person.getSex(), person.getType());
+    }
+
     @Override
     public List<Person> findAll() {
         return this.personRepository.findAllPerson();
+    }
+
+    @Override
+    public Person getById(int id) {
+        return personRepository.getById(id);
     }
 
     @Override

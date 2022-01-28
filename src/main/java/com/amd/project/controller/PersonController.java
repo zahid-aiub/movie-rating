@@ -23,10 +23,20 @@ public class PersonController {
         return this.personService.create(person);
     }
 
+    @PutMapping()
+    public int update(@RequestBody Person person) {
+        return this.personService.update(person);
+    }
+
     @GetMapping()
     public ApiResponse<List<Person>> getAll() {
         List<Person> personList = this.personService.findAll();
         return new ApiResponse<>(200, SUCCESS, personList);
+    }
+
+    @GetMapping("/{id}")
+    public Person getFilmPersonList(@PathVariable("id") int id) {
+        return this.personService.getById(id);
     }
 
     @GetMapping("/by-film/{id}")

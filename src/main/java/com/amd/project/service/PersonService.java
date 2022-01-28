@@ -7,7 +7,11 @@ public interface PersonService {
 
     int create(Person person);
 
+    int update(Person person);
+
     List<Person> findAll();
+
+    Person getById(int id);
 
     List<Person> getFilmPersonList(int id, boolean isSubFilm);
 

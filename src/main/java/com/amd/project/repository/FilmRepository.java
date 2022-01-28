@@ -21,11 +21,27 @@ public interface FilmRepository extends JpaRepository<Film, Integer> {
                @Param("_genreIdLength") int _genreIdLength
     );
 
+    @Query(value = "select update_film(:_parentid, :_desc, :_relDate, :_subFilmId, :_filmGenreId,  :_filmPersonId, :_subFilmLength, :_filmGenreLength, :_filmPersonLength, :_isSubFilm)", nativeQuery = true)
+    int update(@Param("_parentid") int _parentid,
+               @Param("_desc") String _desc,
+               @Param("_relDate") String _relDate,
+               @Param("_subFilmId") String _subFilmId,
+               @Param("_filmGenreId") String _filmGenreId,
+               @Param("_filmPersonId") String _filmPersonId,
+               @Param("_subFilmLength") int _subFilmLength,
+               @Param("_filmGenreLength") int _filmGenreLength,
+               @Param("_filmPersonLength") int _filmPersonLength,
+               @Param("_isSubFilm") boolean _isSubFilm
+    );
+
     @Query(value = "select * from get_film_list()", nativeQuery = true)
     List<Film> findAllFilm();
 
     @Query(value = "select * from get_film_info(:_searchId)", nativeQuery = true)
     Film findById(@Param("_searchId") int _searchId);
+
+    @Query(value = "select * from get_films_by_person(:_searchId)", nativeQuery = true)
+    List<Film> findAllByPersonId(@Param("_searchId") int _searchId);
 
     @Query(value = "select * from get_film_rating(:_searchId, :_isSubFilm)", nativeQuery = true)
     double getFilmRating(@Param("_searchId") int _searchId, @Param("_isSubFilm") boolean _isSubFilm);
