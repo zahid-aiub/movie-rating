@@ -85,6 +85,11 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
+    public List<Film> searchFilms(String title) {
+        return this.filmRepository.searchFilms(title);
+    }
+
+    @Override
     public List<Film> findAllByPersonId(int id) {
         return filmRepository.findAllByPersonId(id);
     }

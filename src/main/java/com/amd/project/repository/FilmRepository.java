@@ -37,6 +37,9 @@ public interface FilmRepository extends JpaRepository<Film, Integer> {
     @Query(value = "select * from get_film_list()", nativeQuery = true)
     List<Film> findAllFilm();
 
+    @Query(value = "select * from search_film(:_title)", nativeQuery = true)
+    List<Film> searchFilms(@Param("_title") String _title);
+
     @Query(value = "select * from get_film_info(:_searchId)", nativeQuery = true)
     Film findById(@Param("_searchId") int _searchId);
 

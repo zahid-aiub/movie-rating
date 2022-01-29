@@ -14,6 +14,8 @@ public interface FilmService {
 
     List<Film> findAll();
 
+    List<Film> searchFilms(String title);
+
     List<Film> findAllByPersonId(int id);
 
     Film findById(int id);

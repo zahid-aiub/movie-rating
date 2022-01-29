@@ -39,6 +39,12 @@ public class FilmController {
         return new ApiResponse<>(200, SUCCESS, films);
     }
 
+    @GetMapping("/search")
+    public ApiResponse<List<Film>> getAllSearchFilm(@RequestParam("title") String title) {
+        List<Film> films = this.filmService.searchFilms(title);
+        return new ApiResponse<>(200, SUCCESS, films);
+    }
+
     @GetMapping("by-person/{id}")
     public ApiResponse<List<Film>> getAllFilmByPersonId(@PathVariable("id") int id) {
         List<Film> films = this.filmService.findAllByPersonId(id);
