@@ -12,5 +12,6 @@ public class FilmCreateDto {
     private int parentFilmId;
     private int isSubFilm;
     private int[] genreIdList;
+    private int zrating;
 
 }

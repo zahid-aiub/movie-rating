@@ -20,7 +20,7 @@ public interface FilmService {
 
     Film findById(int id);
 
-    double getFilmRating(int id, boolean isSubFilm);
+//    double getFilmRating(int id, boolean isSubFilm);
 
     boolean delete(int id);
 }

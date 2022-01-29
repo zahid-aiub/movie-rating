@@ -62,10 +62,10 @@ public class FilmController {
         return new ApiResponse<>(200, SUCCESS, films);
     }
 
-    @GetMapping("/{id}/rating")
+/*    @GetMapping("/{id}/rating")
     public double getFilmRating(@PathVariable("id") int id, @RequestParam("isSubFilm") boolean isSubFilm) {
         return this.filmService.getFilmRating(id, isSubFilm);
-    }
+    }*/
 
     @DeleteMapping("/{id}")
     public boolean delete(@PathVariable("id") int id) {

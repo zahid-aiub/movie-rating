@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @RequiredArgsConstructor
 @Service
@@ -36,10 +37,11 @@ public class FilmServiceImpl implements FilmService {
             genreIdList.setLength(genreIdList.length() - 1);
         }
 
-        return this.filmRepository.create(
+         return this.filmRepository.create(
                 filmCreateDto.getTitle(), filmCreateDto.getDescription(), filmCreateDto.getReleaseDate(),
                 filmCreateDto.getParentFilmId(), filmCreateDto.getIsSubFilm() == 1, personIdList.toString(),
-                genreIdList.toString(), filmCreateDto.getPersonIdList().length, filmCreateDto.getGenreIdList().length
+                genreIdList.toString(), filmCreateDto.getPersonIdList().length, filmCreateDto.getGenreIdList().length,
+                filmCreateDto.getZrating()
         );
     }
 
@@ -55,7 +57,7 @@ public class FilmServiceImpl implements FilmService {
         for (int i = 0; i < filmUpdateDto.getFilmGenreIdList().length; i++) {
             genreIdList.append(filmUpdateDto.getFilmGenreIdList()[i]).append(",");
         }
-        if (filmUpdateDto.getIsSubFilm() == 0) {
+        if (Objects.nonNull(filmUpdateDto.getSubFilmIdList())) {
             for (int i = 0; i < filmUpdateDto.getSubFilmIdList().length; i++) {
                 subFilmList.append(filmUpdateDto.getSubFilmIdList()[i]).append(",");
             }
@@ -73,9 +75,9 @@ public class FilmServiceImpl implements FilmService {
 
         return this.filmRepository.update(
                 filmUpdateDto.getId(), filmUpdateDto.getDescription(), filmUpdateDto.getReleaseDate(),
-                filmUpdateDto.getIsSubFilm() == 1 ? "" : subFilmList.toString(), genreIdList.toString(), personIdList.toString(),
-                filmUpdateDto.getIsSubFilm() == 1 ? 0 : filmUpdateDto.getSubFilmIdList().length, filmUpdateDto.getFilmGenreIdList().length,
-                filmUpdateDto.getFilmPersonIdList().length, filmUpdateDto.getIsSubFilm() == 1
+                filmUpdateDto.getIsSubFilm() == 1 ? "" : subFilmList.toString(), genreIdList.toString(),
+                personIdList.toString(), filmUpdateDto.getIsSubFilm() == 1 ? 0 : Objects.nonNull(filmUpdateDto.getSubFilmIdList()) ? filmUpdateDto.getSubFilmIdList().length : 0, filmUpdateDto.getFilmGenreIdList().length,
+                filmUpdateDto.getFilmPersonIdList().length, filmUpdateDto.getIsSubFilm() == 1, filmUpdateDto.getZrating()
         );
     }
 
@@ -99,10 +101,10 @@ public class FilmServiceImpl implements FilmService {
         return this.filmRepository.findById(id);
     }
 
-    @Override
+/*    @Override
     public double getFilmRating(int id, boolean isSubFilm) {
         return this.filmRepository.getFilmRating(id, isSubFilm);
-    }
+    }*/
 
     @Override
     public boolean delete(int id) {

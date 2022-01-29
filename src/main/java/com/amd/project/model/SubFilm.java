@@ -23,4 +23,6 @@ public class SubFilm {
     private String releaseDate;
 
     private int filmId;
+
+    private int z_rating;
 }

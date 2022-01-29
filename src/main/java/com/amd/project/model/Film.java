@@ -21,4 +21,7 @@ public class Film {
     private String description;
 
     private String releaseDate;
+
+    private int z_rating;
+
 }

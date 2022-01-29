@@ -12,9 +12,7 @@ public class FilmUpdateDto {
     private int[] subFilmIdList;
     private int[] filmGenreIdList;
     private int[] filmPersonIdList;
-//    private int subFilmLength;
-//    private int filmGenreLength;
-//    private int filmPersonLength;
     private int isSubFilm;
+    private int zrating;
 
 }
