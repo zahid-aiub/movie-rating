@@ -55,9 +55,12 @@ public class FilmServiceImpl implements FilmService {
         for (int i = 0; i < filmUpdateDto.getFilmGenreIdList().length; i++) {
             genreIdList.append(filmUpdateDto.getFilmGenreIdList()[i]).append(",");
         }
-        for (int i = 0; i < filmUpdateDto.getSubFilmIdList().length; i++) {
-            subFilmList.append(filmUpdateDto.getSubFilmIdList()[i]).append(",");
+        if (filmUpdateDto.getIsSubFilm() == 0) {
+            for (int i = 0; i < filmUpdateDto.getSubFilmIdList().length; i++) {
+                subFilmList.append(filmUpdateDto.getSubFilmIdList()[i]).append(",");
+            }
         }
+
         if (personIdList.length() > 0) {
             personIdList.setLength(personIdList.length() - 1);
         }
@@ -71,7 +74,7 @@ public class FilmServiceImpl implements FilmService {
         return this.filmRepository.update(
                 filmUpdateDto.getId(), filmUpdateDto.getDescription(), filmUpdateDto.getReleaseDate(),
                 filmUpdateDto.getIsSubFilm() == 1 ? "" : subFilmList.toString(), genreIdList.toString(), personIdList.toString(),
-                filmUpdateDto.getSubFilmIdList().length, filmUpdateDto.getFilmGenreIdList().length,
+                filmUpdateDto.getIsSubFilm() == 1 ? 0 : filmUpdateDto.getSubFilmIdList().length, filmUpdateDto.getFilmGenreIdList().length,
                 filmUpdateDto.getFilmPersonIdList().length, filmUpdateDto.getIsSubFilm() == 1
         );
     }
