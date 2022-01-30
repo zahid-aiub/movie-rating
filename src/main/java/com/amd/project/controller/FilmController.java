@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 import static com.amd.project.config.Constrain.SUCCESS;
 
@@ -46,9 +47,9 @@ public class FilmController {
     }
 
     @GetMapping("by-person/{id}")
-    public ApiResponse<List<Film>> getAllFilmByPersonId(@PathVariable("id") int id) {
-        List<Film> films = this.filmService.findAllByPersonId(id);
-        return new ApiResponse<>(200, SUCCESS, films);
+    public List<Object> getAllFilmByPersonId(@PathVariable("id") int id) {
+        return this.filmService.findAllByPersonId(id);
+//        return new ApiResponse<>(200, SUCCESS, films);
     }
 
     @GetMapping("/{id}")

@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Objects;
 
 public interface FilmRepository extends JpaRepository<Film, Integer> {
 
@@ -46,7 +47,7 @@ public interface FilmRepository extends JpaRepository<Film, Integer> {
     Film findById(@Param("_searchId") int _searchId);
 
     @Query(value = "select * from get_films_by_person(:_searchId)", nativeQuery = true)
-    List<Film> findAllByPersonId(@Param("_searchId") int _searchId);
+    List<Object> findAllByPersonId(@Param("_searchId") int _searchId);
 
     /*@Query(value = "select * from get_film_rating(:_searchId, :_isSubFilm)", nativeQuery = true)
     double getFilmRating(@Param("_searchId") int _searchId, @Param("_isSubFilm") boolean _isSubFilm);*/

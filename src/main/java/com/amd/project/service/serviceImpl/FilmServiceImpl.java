@@ -92,7 +92,7 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
-    public List<Film> findAllByPersonId(int id) {
+    public List<Object> findAllByPersonId(int id) {
         return filmRepository.findAllByPersonId(id);
     }
 
