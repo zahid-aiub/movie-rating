@@ -29,6 +29,11 @@ public class GenreController {
         return new ApiResponse<>(200, SUCCESS, genreList);
     }
 
+    @GetMapping("/{id}")
+    public Genre getById(@PathVariable("id") int id) {
+        return this.genreService.getById(id);
+    }
+
     @GetMapping("/by-film/{id}")
     public List<Genre> getAllGenreByFilmId(@PathVariable("id") int id, @RequestParam("isSubFilm") boolean isSubFilm) {
         return this.genreService.getFilmGenresList(id, isSubFilm);

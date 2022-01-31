@@ -50,6 +50,11 @@ public class FilmController {
         return this.filmService.findAllByPersonId(id);
     }
 
+    @GetMapping("by-genre/{id}")
+    public List<Object> findAllByPersonId(@PathVariable("id") int id) {
+        return this.filmService.findAllByPersonId(id);
+    }
+
     @GetMapping("/{id}")
     public Film getById(@PathVariable("id") int id) {
         return this.filmService.findById(id);

@@ -18,4 +18,7 @@ public interface GenreRepository extends JpaRepository<Genre, Integer> {
 
     @Query(value = "select * from get_genre_list()", nativeQuery = true)
     List<Genre> findAllGenre();
+
+    @Query(value = "select * from get_genre_info(:_searchId)", nativeQuery = true)
+    Genre getGenreById(@Param("_searchId") int _searchId);
 }

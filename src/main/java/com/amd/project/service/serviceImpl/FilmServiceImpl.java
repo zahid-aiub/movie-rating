@@ -97,6 +97,11 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
+    public List<Object> findAllByGenreId(int id) {
+        return filmRepository.findAllByGenreId(id);
+    }
+
+    @Override
     public Film findById(int id) {
         return this.filmRepository.findById(id);
     }

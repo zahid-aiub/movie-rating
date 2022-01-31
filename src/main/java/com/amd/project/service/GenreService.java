@@ -11,4 +11,6 @@ public interface GenreService {
     List<Genre> getFilmGenresList(int id, boolean isSubFilm);
 
     List<Genre> findAll();
+
+    Genre getById(int id);
 }

@@ -18,6 +18,8 @@ public interface FilmService {
 
     List<Object> findAllByPersonId(int id);
 
+    List<Object> findAllByGenreId(int id);
+
     Film findById(int id);
 
     boolean delete(int id);
