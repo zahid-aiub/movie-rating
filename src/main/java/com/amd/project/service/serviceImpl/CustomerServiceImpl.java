@@ -23,7 +23,6 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Customer> findAll() {
-//        return this.customerRepository.findAllUser();
-        return null;
+        return this.customerRepository.findAllUser();
     }
 }

@@ -5,7 +5,6 @@ import com.amd.project.dto.FilmUpdateDto;
 import com.amd.project.model.Film;
 
 import java.util.List;
-import java.util.Objects;
 
 public interface FilmService {
 
@@ -21,7 +20,7 @@ public interface FilmService {
 
     Film findById(int id);
 
-//    double getFilmRating(int id, boolean isSubFilm);
-
     boolean delete(int id);
+
+    List<Film> getAllSuggestedFilm(int userId);
 }

@@ -10,9 +10,10 @@ import java.util.List;
 
 import static com.amd.project.config.Constrain.SUCCESS;
 
+@CrossOrigin("*")
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "user")
+@RequestMapping(value = "users")
 public class CustomerController {
 
     private final CustomerService customerService;

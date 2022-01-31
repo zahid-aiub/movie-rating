@@ -37,7 +37,7 @@ public class FilmServiceImpl implements FilmService {
             genreIdList.setLength(genreIdList.length() - 1);
         }
 
-         return this.filmRepository.create(
+        return this.filmRepository.create(
                 filmCreateDto.getTitle(), filmCreateDto.getDescription(), filmCreateDto.getReleaseDate(),
                 filmCreateDto.getParentFilmId(), filmCreateDto.getIsSubFilm() == 1, personIdList.toString(),
                 genreIdList.toString(), filmCreateDto.getPersonIdList().length, filmCreateDto.getGenreIdList().length,
@@ -101,13 +101,13 @@ public class FilmServiceImpl implements FilmService {
         return this.filmRepository.findById(id);
     }
 
-/*    @Override
-    public double getFilmRating(int id, boolean isSubFilm) {
-        return this.filmRepository.getFilmRating(id, isSubFilm);
-    }*/
-
     @Override
     public boolean delete(int id) {
         return this.filmRepository.delete(id);
+    }
+
+    @Override
+    public List<Film> getAllSuggestedFilm(int userId) {
+        return this.filmRepository.getAllSuggestedFilm(userId);
     }
 }
